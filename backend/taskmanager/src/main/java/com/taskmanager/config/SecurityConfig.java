@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .dispatcherTypeMatchers(jakarta.servlet.DispatcherType.ERROR).permitAll()
                 .requestMatchers("/error").permitAll()
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/actuator/health").permitAll()
                 .requestMatchers(HttpMethod.GET, "/users").hasAuthority("ADMIN")
                 .requestMatchers(HttpMethod.GET, "/projects/**").hasAnyAuthority("ADMIN", "MEMBER")
                 .requestMatchers("/projects/**").hasAuthority("ADMIN")
